@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@5.16.0/dist/d3.min.js"></script>
+    <script src="https://unpkg.com/d3-dag@0.2.3"></script>
+
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- <script src="data2.js"></script> -->
+
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+    <script src="https://unpkg.com/dagre@0.7.4/dist/dagre.js"></script>
+    <script src="src/js/cytoscape-dagre.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/cytoscape/cytoscape.js-navigator/master/cytoscape.js-navigator.css" />
+    <link rel="stylesheet" href="https://rawgit.com/cytoscape/cytoscape.js-panzoom/master/cytoscape.js-panzoom.css" />
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-navigator/master/cytoscape-navigator.js"></script>
+    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/master/cytoscape-panzoom.js"></script>
+
+   
+    <title>Graph</title>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                File
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Browse...</a>
+                <a class="dropdown-item" href="#">Export Json</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Close</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Edit
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Filter</a>
+                  <a class="dropdown-item" href="#">Search</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Help</a>
+                </li>
+                <button type="button" class="btn btn-light my-link-btn">Start Camflow MQTT</button>
+          </ul>
+        </div>
+      </nav>
+      <!-- 竖栏+主图 -->
+      <div class="row">
+        <!-- 竖栏 -->
+        <div class="col-3">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-pattern1-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" >Pattern1</a>
+                <a class="list-group-item list-group-item-action" id="list-pattern2-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile" >Pattern2</a>
+                <a class="list-group-item list-group-item-action" id="list-pattern3-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages" >Pattern3</a>
+                <div class="custom-control custom-checkbox my-check-box">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">show names</label>
+                </div>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <!-- <button type="button" class="btn btn-light">
+                    <svg t="1597169884042" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1208" width="1em" height="1em"><path d="M871.52 944.048c-176.352 0-319.824-143.48-319.824-319.832V153.056l151.92 151.92 56.536-56.544L511.72 0 263.28 248.432l56.536 56.536 151.92-151.92v471.168c0 176.352-143.48 319.832-319.832 319.832H0V1024h151.92c158.04 0 294.944-92.192 359.8-225.616C576.56 931.816 713.472 1024 871.512 1024h151.92v-79.952h-151.92z" p-id="1209"></path></svg>
+                      line merging
+                </button> -->
+            </div>
+        </div>
+         <!-- 主图 -->
+        <div class="col-9" style="margin-left:-10px;padding:0">
+          <div class="tab-content" id="nav-tabContent">
+            <!-- 主图1 -->
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-pattern1-list">
+                <div id="my-graph-canvas"></div>
+                <div id="my-node-info__panel">Click one node for more information.↑</div>
+            </div>
+            <!-- 主图2 -->
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-pattern2-list" style="position: relative;">
+                <nav class="my-category__box">
+                    <button type="button" id="task"class="my-node-category__btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list-task" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
+                            <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"/>
+                            <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
+                        </svg>
+                        task
+                    </button>
+                    <button type="button" id="address" class="my-node-category__btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-map" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M15.817.613A.5.5 0 0 1 16 1v13a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 14.51l-4.902.98A.5.5 0 0 1 0 15V2a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0l4.902.98 4.902-.98a.5.5 0 0 1 .415.103zM10 2.41l-4-.8v11.98l4 .8V2.41zm1 11.98l4-.8V1.61l-4 .8v11.98zm-6-.8V1.61l-4 .8v11.98l4-.8z"/>
+                        </svg>
+                        address
+                    </button>
+                    <button type="button" id="socket" class="my-node-category__btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                        </svg>
+                        socket
+                    </button>
+                    <button type="button" id="path" class="my-node-category__btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bezier2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 0 1 2.5 1h1A1.5 1.5 0 0 1 5 2.5v1A1.5 1.5 0 0 1 3.5 5h-1A1.5 1.5 0 0 1 1 3.5v-1zM2.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM11 12.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+                            <path fill-rule="evenodd" d="M6.767 4.645C6.303 3.923 5.592 3.5 4.5 3.5v-1H10v1H7.124c.18.18.34.381.484.605.638.992.892 2.354.892 3.895 0 1.993.257 3.092.713 3.7.418.559 1.089.8 2.287.8v1H6v-1h2.577a2.839 2.839 0 0 1-.165-.2C7.743 11.407 7.5 10.007 7.5 8c0-1.46-.246-2.597-.733-3.355z"/>
+                            <path d="M11 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 13a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg>
+                        path
+                    </button>
+                    <button type="button" id="packet" class="my-node-category__btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                        </svg>
+                        packet
+                    </button>
+                    <button type="button" id="process_memory" class="my-node-category__btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-hourglass-split" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13s-.866-1.299-3-1.48V8.35z"/>
+                          </svg>
+                          process
+                    </button>
+                    <button type="button" id="file" class="my-node-category__btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+                            <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z"/>
+                          </svg>
+                          file
+                    </button>
+                    <button type="button" id="others" class="my-node-category__btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grid" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+                          </svg>
+                          others
+                    </button>
+                </nav>
+                <div class="row" style="width: 100%; position: fixed;">
+                    <div class="col-2" style="z-index: 1000;">
+                        <div class="list-group" id="list-tab" role="tablist" style="width:100%;margin-top: 60px;position:absolute;padding: 0;height: 100%;">
+                            <div class="my-filter-node__box">
+                                <a href="#" class="badge badge-light" id="my-sortbyname__btn"">name↓</a>
+                                /
+                                <a href="#" class="badge badge-light" id="my-sortbyfreq__btn">frequency↓</a>
+                            </div>
+                            <div id="my-node-list__box"></div>
+                            <!-- <div style="height:140px"></div> -->
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div id="my-graph-canvas__pattern2"></div>
+                    </div>
+                </div>
+           
+       
+                
+            </div>
+            <!-- 主图3 -->
+            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-pattern3-list">
+                <div id="my-task-filter_box">
+                    <div class="custom-control custom-checkbox my-check-box">
+                        <input type="checkbox" class="custom-control-input" id="task0">
+                        <label class="custom-control-label" for="task0">[task] 0</label>
+                    </div>
+                    <div class="custom-control custom-checkbox my-check-box">
+                        <input type="checkbox" class="custom-control-input" id="task1">
+                        <label class="custom-control-label" for="task1">[task] 1</label>
+                    </div>
+                    <div class="custom-control custom-checkbox my-check-box">
+                        <input type="checkbox" class="custom-control-input" id="task2">
+                        <label class="custom-control-label" for="task2">[task] 2</label>
+                    </div>
+                    <div class="custom-control custom-checkbox my-check-box">
+                        <input type="checkbox" class="custom-control-input" id="task3">
+                        <label class="custom-control-label" for="task3">[task] 3</label>
+                    </div>
+                    <div class="custom-control custom-checkbox my-check-box">
+                        <input type="checkbox" class="custom-control-input" id="task4">
+                        <label class="custom-control-label" for="task4">[task] 4</label>
+                    </div>
+                    <div class="custom-control custom-checkbox my-check-box">
+                        <input type="checkbox" class="custom-control-input" id="task5">
+                        <label class="custom-control-label" for="task5">[task] 5</label>
+                    </div>
+                    <div class="custom-control custom-checkbox my-check-box">
+                        <input type="checkbox" class="custom-control-input" id="task6">
+                        <label class="custom-control-label" for="task6">[task] 6</label>
+                    </div>
+                    <div class="custom-control custom-checkbox my-check-box">
+                        <input type="checkbox" class="custom-control-input" id="task7">
+                        <label class="custom-control-label" for="task7">[task] 7</label>
+                    </div>
+
+                </div>
+                <div class="my-manipulate-btn__box" style="margin-top: 10px">
+                    <button type="button" class="btn btn-light my-manipulate-btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrows-angle-expand"  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1.5 10.036a.5.5 0 0 1 .5.5v3.5h3.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+                            <path fill-rule="evenodd" d="M6.354 9.646a.5.5 0 0 1 0 .708l-4.5 4.5a.5.5 0 0 1-.708-.708l4.5-4.5a.5.5 0 0 1 .708 0zm8.5-8.5a.5.5 0 0 1 0 .708l-4.5 4.5a.5.5 0 0 1-.708-.708l4.5-4.5a.5.5 0 0 1 .708 0z"/>
+                            <path fill-rule="evenodd" d="M10.036 1.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 1 1-1 0V2h-3.5a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="btn btn-light my-manipulate-btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+                            <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="btn btn-light my-manipulate-btn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M3.5 8a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="svg-container__pattern3">
+                </div>
+               
+            </div>
+          </div>
+        </div>
+      </div>
+        <script src="src/js/index.js"></script>
+        <!-- <script src="src/js/pattern2.js"></script> -->
+        <!-- <script src="src/js/pattern3.js"></script> -->
+</body>
+</html>

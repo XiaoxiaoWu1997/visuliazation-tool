@@ -1,0 +1,227 @@
+[
+    {
+        "selector": "node",
+            "style": {
+                "background-color": "#fc8d62",
+                "shape": "data(shapeType)"
+            }
+        },
+
+    {
+        "selector": "edge",
+        "style": {
+            "target-arrow-shape": "triangle",
+            "line-color": "#9dbaea",
+            "target-arrow-color": "#9dbaea",
+            "curve-style": "bezier"
+        }
+    },
+
+    {
+        "selector": ".autorotate",
+        "style": {
+            "edge-text-rotation": "autorotate",
+            "width": 2
+        }
+    },
+
+    {
+      "selector": ".boldline",
+      "style": {
+          "edge-text-rotation": "autorotate",
+          "width": 8
+      }
+    },
+    
+    {
+        "selector": ".edgeCate-used",
+        "style": {
+            "line-color": "#66c2a5",
+            "target-arrow-color": "#66c2a5"
+        }
+    },
+    {
+        "selector": ".edgeCate-wasGeneratedBy",
+        "style": {
+            "line-color": "#fc8d62",
+            "target-arrow-color": "#fc8d62"
+        }
+    },
+    {
+        "selector": ".edgeCate-wasInformedBy",
+        "style": {
+            "line-color": "#8da0cb",
+            "target-arrow-color": "#8da0cb"
+        }
+    },
+    {
+        "selector": ".edgeCate-wasAssociatedWith",
+        "style": {
+            "line-color": "#da8fc1",
+            "target-arrow-color": "#da8fc1"
+        }
+    },
+    {
+        "selector": ".edgeCate-wasDerivedFrom",
+        "style": {
+            "line-color": "#b1d668",
+            "target-arrow-color": "#b1d668"
+        }
+    },
+
+    {
+        "selector": "edge[label]",
+        "style": {
+            "label": "data(label)",
+            "font-size": "8px",
+            "text-outline-color": "#fff",
+            "text-outline-width": 1
+        }
+    },
+    {
+        "selector": "node[label]",
+        "style": {
+            "label": "data(label)",
+            "font-size": "10px",
+            "text-outline-color": "#fff",
+            "text-outline-width": 1
+        }
+    },
+    {
+        "selector": ".center-right",
+        "style": {
+            "text-valign": "center",
+            "text-halign": "right"
+        }
+    },
+    {
+      "selector": "node[label]",
+      "style": {
+        "label": "data(label)"
+      }
+    },
+  
+    {
+      "selector": "edge[label]",
+      "style": {
+        "label": "data(label)"
+      }
+    },
+  
+    {
+      "selector": ".top-left",
+      "style": {
+        "text-valign": "top",
+        "text-halign": "left"
+      }
+    },
+  
+    {
+      "selector": ".top-center",
+      "style": {
+        "text-valign": "top",
+        "text-halign": "center"
+      }
+    },
+  
+    {
+      "selector": ".top-right",
+      "style": {
+        "text-valign": "top",
+        "text-halign": "right"
+      }
+    },
+  
+    {
+      "selector": ".center-left",
+      "style": {
+        "text-valign": "center",
+        "text-halign": "left"
+      }
+    },
+  
+    {
+      "selector": ".center-center",
+      "style": {
+        "text-valign": "center",
+        "text-halign": "center"
+      }
+    },
+  
+    {
+      "selector": ".center-right",
+      "style": {
+        "text-valign": "center",
+        "text-halign": "right"
+      }
+    },
+  
+    {
+      "selector": ".bottom-left",
+      "style": {
+        "text-valign": "bottom",
+        "text-halign": "left"
+      }
+    },
+  
+    {
+      "selector": ".bottom-center",
+      "style": {
+        "text-valign": "bottom",
+        "text-halign": "center"
+      }
+    },
+  
+    {
+      "selector": ".bottom-right",
+      "style": {
+        "text-valign": "bottom",
+        "text-halign": "right"
+      }
+    },
+  
+    {
+      "selector": ".multiline-manual",
+      "style": {
+        "text-wrap": "wrap"
+      }
+    },
+  
+    {
+      "selector": ".multiline-auto",
+      "style": {
+        "text-wrap": "wrap",
+        "text-max-width": 80
+      }
+    },
+  
+    {
+      "selector": ".autorotate",
+      "style": {
+        "edge-text-rotation": "autorotate"
+      }
+    },
+  
+    {
+      "selector": ".background",
+      "style": {
+        "text-background-opacity": 1,
+        "color": "#fff",
+        "text-background-color": "#888",
+        "text-background-shape": "roundrectangle",
+        "text-border-color": "#000",
+        "text-border-width": 1,
+        "text-border-opacity": 1
+      }
+    },
+  
+    {
+      "selector": ".outline",
+      "style": {
+        "color": "#fff",
+        "text-outline-color": "#888",
+        "text-outline-width": 3
+      }
+    }
+  ]
+  
