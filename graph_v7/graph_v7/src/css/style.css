@@ -1,0 +1,259 @@
+body {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+button:active, button:focus {
+    outline: none;
+}
+
+.row {
+    height: 100%
+}
+
+.list-group {
+    padding: 10px;
+    border: 1px solid #eee;
+    height: 100%;
+}
+
+.list-group-item  {
+    border: none
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.my-link-btn {
+    position: absolute;
+    right: 10px;
+}
+
+.my-check-box {
+    margin: 20px 0;
+    word-break: break-all;
+}
+
+.my-manipulate-btn__box {
+    display: flex;
+    width: 50px;
+    height: 100px;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    position: absolute;
+    
+}
+
+.my-manipulate-btn {
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.my-category__box {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    position: absolute;
+    z-index: 100;
+    white-space: nowrap;
+    background-color: transparent;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.my-category__box button {
+    margin-right: 10px
+}
+
+#my-node-list__box {
+    background-color: #fff;
+    overflow-y: scroll;
+    padding: 0 10px 0 5px;
+}
+
+#my-task-filter_box {
+    display: flex;
+    padding: 0 10px
+}
+
+#my-task-filter_box > .my-check-box {
+    margin-right: 20px
+}
+
+#my-node-info__panel {
+    height: 200px;
+    /* width: 100%; */
+    left: 240px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 10px;
+    right:15px;
+    border: 1px solid rgb(225, 225, 225);
+    padding: 15px 10px 15px 15px;
+    z-index: 10;
+    box-sizing: content-box;
+}
+#my-graph-canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* z-index: 999; */
+  }
+
+  .my-node-info__item {
+      width: 50%;
+      vertical-align: middle;
+  }
+
+  .my-node-info__title {
+      margin: 0 0 10px
+  }
+#my-graph-canvas__pattern2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    /* z-index: 999; */
+  }
+  .my-node-category__btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    outline: none;
+  }
+
+  .cate-btn__active{
+      background-color: #e3e6ea
+  }
+
+  .my-filter-node__box {
+    padding: 0 5px;
+  }
+
+  .hidden-style {
+      visibility: hidden;
+  }
+
+  .modal-backdrop {
+      z-index: 100000;
+  }
+
+  .modal-backdrop.show {
+      opacity: 0;
+  }
+
+  .modal-dialog {
+    box-shadow: 0 0 5px 2px #eee;
+ }
+
+ #line-merge__path {
+     fill: #007bff
+ }
+
+ #my-line-merge__btn {
+     margin-top: 10px
+ }
+
+ #my-menu-sec {
+    display: none;
+    z-index: 100000;
+    left: 160px;
+    top: 110px;
+ }
+
+#my-complicate-mode__tag {
+     display: none;
+ }
+
+ #my-simple-mode__tag {
+    display: block;
+}
+
+.cy-panzoom-zoom-only {
+    left: 220px
+}
+
+#my-main-container {
+    position: fixed;
+    width: 100%;
+    height: 93%;
+}
+
+.my-navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+#my-close-info-panel__btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#my-node-info__panel-label {
+    overflow-y: scroll;
+    word-break: break-all;
+    height: 180px;
+}
+
+.panel-hide {
+    display: none;
+}
+
+.show-btn {
+    position: absolute;
+    z-index: 10;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    text-decoration: underline;
+    border: none;
+    background-color: #fff;
+}
+
+#my-show-panel__btn {
+    bottom: 10px;
+    right: 10px;
+}
+
+#my-show-list-panel__btn {
+    top: 45%;
+    left: 15px;
+}
+
+#my-node-list-panel {
+    background-color: #fff;
+}
+
+#my-mode-change__btn {
+    position: absolute;
+    right: 10px;
+    /* background-color: #fff; */
+    /* top: 0 */
+}
